@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hey
+  labels:
+    app: hey
+    service: hey
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hey
+      service: hey
+  template:
+    metadata:
+      labels:
+        app: hey
+        service: hey
+    spec:
+      containers:
+      - name: hey-container
+        image: hhana982/hey:1.<version>
+        ports:
+        - containerPort: 5000
+        env: 
